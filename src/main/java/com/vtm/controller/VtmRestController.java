@@ -95,7 +95,7 @@ public class VtmRestController {
     public ResponseEntity<Void> sendSMS(@RequestBody String routeId) throws NumberFormatException, ValidationException {
         System.out.println("Sending SMS " + routeId);
        List<Student> studentList =studentService.getStudentsByrouteId(Long.valueOf(routeId));
-       smsService.sendSMStoStudents(studentList);
+       smsService.sendSMStoStudents(studentList,"Bus will be arrived-->");
         HttpHeaders headers = new HttpHeaders();
        // headers.setLocation(ucBuilder.path("/route").buildAndExpand().toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
@@ -106,9 +106,9 @@ public class VtmRestController {
     @RequestMapping(value = "/student/onboard", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map> updateStudentOnBoardStatus(@RequestBody String studentId) throws NumberFormatException, ValidationException {
         System.out.println("updating Student onboard " + studentId);
-       String status =studentService.storeStudentOnboardStatus(Long.valueOf(studentId));
+     //  String status =studentService.storeStudentOnboardStatus(Long.valueOf(studentId),new Long(1));
        Map<String,String> map=new HashMap<String, String>();
-       map.put("status", status);
+     //  map.put("status", status);
         HttpHeaders headers = new HttpHeaders();
        // headers.setLocation(ucBuilder.path("/route").buildAndExpand().toUri());
         return new ResponseEntity<Map>(map, HttpStatus.CREATED);
