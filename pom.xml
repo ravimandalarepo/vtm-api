@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.vtm</groupId>
-	<artifactId>VehicleTransportManagementApp</artifactId>
+	<artifactId>VehicleTransportManagementApp-1</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>VehicleTransportManagementApp</name>
+	<name>VehicleTransportManagementApp-1</name>
  <scm>
     <url>git@github.com:twilio/twilio-java.git</url>
     <connection>scm:git:git@github.com:twilio/twilio-java.git</connection>
@@ -87,11 +87,6 @@
     <groupId>org.glassfish.jersey.containers</groupId>
     <artifactId>jersey-container-servlet-core</artifactId>
     <version>2.21</version>
-</dependency>
-<dependency>
-    <groupId>com.im.travelalerting</groupId>
-    <artifactId>travelalerting </artifactId>
-    <version>1.0</version>
 </dependency>
  <dependency>
       <groupId>com.twilio.sdk</groupId>

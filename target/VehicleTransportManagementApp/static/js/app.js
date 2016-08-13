@@ -28,7 +28,7 @@
                 controllerAs: 'vm1'
             }) 
             .when('/onboard', {
-                controller:'ViewDirectionController',
+                controller:'StundentOnboardController',
                 templateUrl: 'static/templates/on-board.view.html',
                 controllerAs: 'vm'
             }) 

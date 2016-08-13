@@ -17,6 +17,7 @@
         service.sendSMS=sendSMS;
         service.StudentRsvp = StudentRsvp;
 		service.getPickupDetails=getPickupDetails;
+		service.displayStudentDetails=displayStudentDetails;
         return service;
         
        
@@ -24,9 +25,15 @@
            return $http.post('/api/users', studentId).then(handleSuccess, handleError('Error creating user'));
         
         }
+        
 		 function getPickupDetails(studentId) {
 		 alert(studentId);
            return $http.get('http://localhost:8080/vtm/pickuppoints/'+studentId).then(handleSuccess, handleError('Error creating user'));
+        
+        }
+         function displayStudentDetails(studentId) {
+		 alert(studentId);
+           return $http.get('http://localhost:8080/vtm/studentsByPickupPoint/'+studentId).then(handleSuccess, handleError('Error creating user'));
         
         }
 		function sendSMS(routeId) {

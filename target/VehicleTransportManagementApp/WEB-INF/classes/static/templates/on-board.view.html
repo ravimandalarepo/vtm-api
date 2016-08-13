@@ -15,13 +15,13 @@
 		<div class="row on-board">
 	        <div class="col-xs-4 left-rail">
 				<div class="list-group on-board-left-rail">
-					<a href="#" class="list-group-item active">
+					<a href="#" class="list-group-item active" ng-repeat="pickupPoints in vm.pickupPoints">
 						<h4 class="list-group-item-heading">
 						<span class="glyphicon glyphicon-map-marker"></span>
-						Belgrade ave at rexhame st</h4>
-						<p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:38:00 AM</p>
+						{{pickupPoints.pickupPointName}}</h4>
+						<p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> {{pickupPoints.arrivalTime}}</p>
 					</a>
-				  	<a href="#" class="list-group-item">
+				  	<!--<a href="#" class="list-group-item">
 					    <h4 class="list-group-item-heading">
 						<span class="glyphicon glyphicon-map-marker"></span>
 					    Belgrade ave at amherst st</h4>
@@ -44,7 +44,7 @@
 						<span class="glyphicon glyphicon-map-marker"></span>
 					    Washinton st at Archdale Rd</h4>
 					    <p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:51:00 AM</p>
-				  	</a>
+				  	</a>-->
 				</div>
 			</div> 
 			<div class="col-xs-8 right-rail on-board-right-rail">
