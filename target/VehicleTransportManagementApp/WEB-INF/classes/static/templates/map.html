@@ -1,0 +1,65 @@
+            
+    <section class="bg-dark" id="about">
+      
+        
+        <div class="container left-rail">
+        
+            <div class="text-center">
+                <h2 class="section-heading">{{vm.HHmmss}}</h2>
+                <p>{{vm.date}}</p>
+            </div>
+			 <div class="text-center">
+                    <select id="UserSelector" ng-change="vm.displayRoute()" ng-model="dropValue">
+                 <option value="Please Select" selected>Please Select Route</option>
+      <option ng-repeat="route in vm.routes" value="{{route.routeId}}">{{route.name}}</option>
+    </select>
+        	</select>
+            </div>
+			
+            <div class="list-group">
+                
+                <div class="list-group-item clearfix">
+                    <div class="col-xs-6 no-padding">  
+                        <h4 class="list-group-item-heading">Pick-up Morning (P001)</h4>
+                        <p><span class="pick-up">{{vm.route.startPoint}}</span><br/>Bus No: {{vm.route.busNo}}</p>
+                    </div>
+                    <div class="col-xs-6 no-padding">
+                        <span class="btn btn-default btn-xl pull-right">
+                            <a href="#direction" data-ng-click="vm.SetLocation()">View</a>
+                        </span>
+
+                        <span class="btn btn-default btn-xl pull-right"><a href="#map">Start Run</a></span>
+                        
+                    </div>                      
+                </div>
+
+                <div class="list-group-item clearfix">
+                     <div class="col-xs-6 no-padding">  
+                        <h4 class="list-group-item-heading">Drop-off Evening (D001)</h4>
+                        <p><span class="drop-off">{{vm.route.endPoint}}</span><br/>Bus No: {{vm.route.busNo}}</p>
+                    </div>
+                    <div class="col-xs-6 no-padding">
+                        <span class="btn btn-default btn-xl pull-right">
+                        <a href="#direction" data-ng-click="vm.SetLocation()">View</a>
+                        </span>
+                        <span class="btn btn-default btn-xl pull-right">
+                        <a href="#map">Start Run</a></span>
+                    </div>
+                    
+                </div>
+                <!-- <div class="list-group-item  clearfix">
+                    <div class="col-xs-6 no-padding">
+                        <h4 class="list-group-item-heading">Third List Group Item Heading</h4>
+                        <p class="list-group-item-text">List Group Item Text</p>
+                    </div>
+                    <div class="col-xs-6 no-padding">  
+                        <span class="btn btn-default btn-xl">Start Run</span>
+                        <span class="btn btn-default btn-xl">
+                        <a href="#direction">View</a>
+                        </span>
+                    </div>
+                    
+                </div> -->
+          </div>
+        </div>
+    </section>

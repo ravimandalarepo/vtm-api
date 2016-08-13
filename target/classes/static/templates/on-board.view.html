@@ -1,0 +1,192 @@
+<section class="bg-blue">
+	<div class="container">
+		<div class="row top-ribbon">
+			<div class="col-md-6">
+				<span>TOTALS:</span>
+				<span class="blue">7 ABSENT</span>
+				<span class="green">3 ON</span>
+				<span class="glassy-blue ">3 OFF</span>
+				<span class="red">1 EXCEPTIONS</span>
+			</div>
+			<div class="col-md-6">
+				<i class="icon-ellipsis-vertical"></i>
+			</div>
+		</div>
+		<div class="row on-board">
+	        <div class="col-xs-4 left-rail">
+				<div class="list-group on-board-left-rail">
+					<a href="#" class="list-group-item active" ng-repeat="pickupPoints in vm.pickupPoints">
+						<h4 class="list-group-item-heading">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						{{pickupPoints.pickupPointName}}</h4>
+						<p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> {{pickupPoints.arrivalTime}}</p>
+					</a>
+				  	<!--<a href="#" class="list-group-item">
+					    <h4 class="list-group-item-heading">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					    Belgrade ave at amherst st</h4>
+					    <p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:41:00 AM</p>
+				  	</a>
+				  	<a href="#" class="list-group-item">
+					    <h4 class="list-group-item-heading">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					    Washinton st at albano st</h4>
+					    <p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:44:00 AM</p>
+				  	</a>
+				  	<a href="#" class="list-group-item">
+					    <h4 class="list-group-item-heading">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					    Washinton st at Stellman Rd</h4>
+					    <p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:48:00 AM</p>
+				  	</a>
+				  	<a href="#" class="list-group-item">
+					    <h4 class="list-group-item-heading">
+						<span class="glyphicon glyphicon-map-marker"></span>
+					    Washinton st at Archdale Rd</h4>
+					    <p class="list-group-item-text"><span class="glyphicon glyphicon-time"></span> 8:51:00 AM</p>
+				  	</a>-->
+				</div>
+			</div> 
+			<div class="col-xs-8 right-rail on-board-right-rail">
+				<div class="list-group">
+				
+					<ul class="nav nav-tabs">
+					  <li class="active"><a data-toggle="tab" href="javascript:void(0);" data-target="#absent"><span class="passenger-count">7</span> ABSENT</a></li>
+					  <li><a data-toggle="tab" href="javascript:void(0);" data-target="#on">
+					  <span class="passenger-count">3</span> ON</a></li>
+					  <li><a data-toggle="tab" href="javascript:void(0);" data-target="#off">
+					  <span class="passenger-count">2</span> OFF</a></li>
+					  
+				   	  <button type="" class="btn btn-default btn-sms pull-right" ng-click="vm.sendSMS(1)">SMS</button>
+				   	  
+
+					</ul>
+						
+					<div class="tab-content">
+				  		<div id="absent" class="tab-pane fade in active">
+					    	<ul class="media-list">
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Boothman, Matthew</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Esposito, Micheal</h4>
+										<button type="" class="pull-right" data-ng-click="vm.StudentRsvp(1)" id="student_1">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Fereell, Maria</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Holloran, Joseph</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Kriesman, Cassy</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Kriesman, Cassy</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Kriesman, Cassy</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+							</ul>
+					  	</div>
+					  	<div id="on" class="tab-pane fade">
+						    <ul class="media-list">	
+						    	<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Boothman, Matthew</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Esposito, Micheal</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Fereell, Maria</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+							</ul>
+					  	</div>
+					  	<div id="off" class="tab-pane fade">
+						  	<ul class="media-list">
+					    		<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Kriesman, Cassy</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+								<li class="media">
+									<a class="pull-left" href="#">
+										<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAC40lEQVR4Xu2Xi0oqURSGl6RpmaJoYJIRkSUIXfT9H8ErmUl2g8rUGi+leDfWAuWcU6dm1XTwwL9BnD1s1uz98a1/1GYYxpQw3hCwAcz7VgDMX7oFYABGF6QwBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6XsgYGANjdARgjI4XMgbGwBgdARij44WMgTEwRkcAxuh4WZox3W6XCoUCtVotstlsFAwGKR6Pk91un++qXq/LmuXlZUokEuRyuT7c8U/UNIPIMjCj0YjS6TQNBgM6Ojqiy8tLenx8pL29Pdrc3JS9jMdjymQy1Gw2aXV19VMwP1HTDBReYxkYhnByckLr6+tiyXvj7u6OSqUSTSYTU2B+ouY/B3N9fU3lcpl2d3dpe3v7zfOHwyGlUiliC/ja6XSKMbVajc7Pz+eg+Prh4YE2Njbk3sXFhbrmZ+1pBo5lxpyenlKlUqG1tTXqdDry7HA4TPv7+5I33Fo3NzcUiUSIzXE4HAKGv3O5HDUaDckkwzAkd7gdr66uvlRz4cDc39+T1+ulw8NDOjs7k4yJRqMUCAQkW3jDPM9ms3MwfI8zJ5/PSz4tLS1RLBYTYxj2V2uaseKjNZYZM2ulnZ0d4g+3Ax/M7/fTysqKzDl7GASH9MwYnk+nU4H19PREbrdbTOJW+07NhQHDBy8Wi/P2mYFhg9gEfu3+OWZwXl5exDAOZYbEbzG25js1PR7Pt9hYZswsXPlgBwcHkg/ValVaZ2tra77J5+fn34zh9dxm/X5fQvv29lZe62yXz+eTwNbWXKiM4ZPzodmadrstWcFAuK04fGfjVzDHx8cSyhzaoVBIYPCcW4hbKplMUq/XU9U086PRjEqWGWPmYf/TGoDBn0idrzAGxsAYHQEYo+OFjIExMEZHAMboeCFjYAyM0RGAMTpeyBgYA2N0BGCMjhcyBsbAGB0BGKPjhYyBMTBGRwDG6HghY2AMjNERgDE6Xq/t+7lbVueddgAAAABJRU5ErkJggg==" style="width: 64px; height: 64px;">
+									</a>
+									<div class="media-body">
+										<h4 class="media-heading">Kriesman, Cassy</h4>
+										<button type="" class="pull-right">On-Board</button>
+									</div>
+								</li>
+							
+						    </ul>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
